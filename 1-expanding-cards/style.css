@@ -8,32 +8,3 @@ html, body {
     height: 100%;
     width: 100%;
 }
-
-.list {
-    height:100%;
-    margin: 50px;
-    display: flex;
-    flex-direction: row;
-}
-
-.list[expand="1"] .list-entry:nth-child(1) {width: 80%;}
-.list[expand="2"] .list-entry:nth-child(2) {width: 80%;}
-.list[expand="3"] .list-entry:nth-child(3) {width: 80%;}
-.list[expand="4"] .list-entry:nth-child(4) {width: 80%;}
-.list[expand="5"] .list-entry:nth-child(5) {width: 80%;}
-
-.list-entry {
-    margin:10px;
-    height: 100%;
-    width: 20%;
-    transition: width .75s ease-in-out;
-    border-radius: 50px;
-    box-shadow: 0px 0px 3px inset black;
-}
-
-.list-entry:nth-child(1){background:lightblue;}
-.list-entry:nth-child(2){background:lightcoral;}
-.list-entry:nth-child(3){background:lightgreen;}
-.list-entry:nth-child(4){background:lightgray;}
-.list-entry:nth-child(5){background:lightyellow;}
-
