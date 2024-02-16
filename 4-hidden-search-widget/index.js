@@ -13,6 +13,7 @@ class HiddenSearchComponent extends HTMLElement {
                 --input-font-size:20px;
                 --input-color: #333;
                 --input-padding: 15px;
+                --input-background-color: white;
                 --max-width: 200px;
 
                 display: flex;
@@ -27,6 +28,9 @@ class HiddenSearchComponent extends HTMLElement {
                 padding: 0 var(--icon-padding);
                 cursor: pointer;
             }
+            .icon path {
+                fill: var(--icon-color);
+            }
             input {
                 border: 0;
                 padding: 0;
@@ -35,6 +39,8 @@ class HiddenSearchComponent extends HTMLElement {
                 height: var(--icon-size);
                 font-size: var(--input-font-size);
                 transition: width .5s, padding .5s;
+                color: var(--input-color);
+                background-color: var(--input-background-color);
             }
 
             .active input {
@@ -58,6 +64,27 @@ class HiddenSearchComponent extends HTMLElement {
 
     connectedCallback() {
         const shadowRootDom = this.template.content.cloneNode(true);
+        
+        this.backgroundColor =  this.getAttribute("background-color") || "white";
+        this.iconSize =  this.getAttribute("icon-size") || "40px";
+        this.iconColor =  this.getAttribute("icon-color") || "black";
+        this.iconPadding =  this.getAttribute("icon-padding") || "0px";
+        this.inputFontSize =  this.getAttribute("input-font-size") || "20px";
+        this.inputColor =  this.getAttribute("input-color") || "#333";
+        this.inputPadding =  this.getAttribute("input-padding") || "15px";
+        this.inputBackgroundColor =  this.getAttribute("input-background-color") || "white";
+        this.maxWidth =  this.getAttribute("max-width") || "200px";
+
+        const container = shadowRootDom.querySelector(".container");
+        container.style.setProperty('--background-color', this.backgroundColor);
+        container.style.setProperty('--icon-size', this.iconSize);
+        container.style.setProperty('--icon-color', this.iconColor);
+        container.style.setProperty('--icon-padding', this.iconPadding);
+        container.style.setProperty('--input-font-size', this.inputFontSize);
+        container.style.setProperty('--input-color', this.inputColor);
+        container.style.setProperty('--input-padding', this.inputPadding);
+        container.style.setProperty('--input-background-color', this.inputBackgroundColor);
+        container.style.setProperty('--max-width', this.maxWidth);
 
         shadowRootDom.querySelector(".icon").addEventListener("click", e => {
             e.target.closest(".icon").parentElement.classList.toggle("active");
