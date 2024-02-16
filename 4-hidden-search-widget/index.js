@@ -33,13 +33,12 @@ class HiddenSearchComponent extends HTMLElement {
                 width: 0;
                 outline: 0;
                 height: var(--icon-size);
-                max-width: calc(var(--max-width) - var(--icon-size) - calc(2 * var(--input-padding)));
                 font-size: var(--input-font-size);
                 transition: width .5s, padding .5s;
             }
 
             .active input {
-                width: 100%;
+                width: calc(var(--max-width) - var(--icon-size) - calc(2 * var(--input-padding)));
                 padding: 0 var(--input-padding);
             }
 
@@ -61,7 +60,7 @@ class HiddenSearchComponent extends HTMLElement {
         const shadowRootDom = this.template.content.cloneNode(true);
 
         shadowRootDom.querySelector(".icon").addEventListener("click", e => {
-            e.target.parentElement.classList.toggle("active");
+            e.target.closest(".icon").parentElement.classList.toggle("active");
         });
 
         this.shadowRoot.appendChild(shadowRootDom);
