@@ -1,0 +1,13 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: rgba(0, 0, 0, 10%);
+}
