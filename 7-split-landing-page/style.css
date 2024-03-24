@@ -1,0 +1,43 @@
+#box {
+    display: block;
+    width: 500px;
+    height: 500px;
+}
+
+#box-fs {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 100%;
+}
+
+.left {
+    background-color: #7a78e7
+}
+
+.right {
+    background-color: #2a292a
+}
+
+button {
+    min-width: 200px;
+    padding: 1rem;
+    border: 2px solid white;
+    text-align: center;
+    text-transform: uppercase;
+    background: none;
+    color: white;
+    transition: background-color .2s;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #FFFFFF10;
+}
