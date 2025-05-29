@@ -39,12 +39,15 @@ echo "Replacing placeholders..."
 # Use find to get all files in the new directory
 find "$component_name" -type f -print0 | while IFS= read -r -d $'\0' file; do
   # Replace {{COMPONENT_NAME}}
-  sed -i "s/{{COMPONENT_NAME}}/$component_name/g" "$file"
+  sed -i'.bak' "s#{{COMPONENT_NAME}}#$component_name#g" "$file"
   # Replace {{COMPONENT_TITLE}}
-  sed -i "s/{{COMPONENT_TITLE}}/$component_title/g" "$file"
+  sed -i'.bak' "s#{{COMPONENT_TITLE}}#$component_title#g" "$file"
   # Replace {{COMPONENT_PASCAL_CASE_NAME}}
-  sed -i "s/{{COMPONENT_PASCAL_CASE_NAME}}/$component_pascal_case_name/g" "$file"
+  sed -i'.bak' "s#{{COMPONENT_PASCAL_CASE_NAME}}#$component_pascal_case_name#g" "$file"
 done
+
+# Remove backup files
+find "$component_name" -type f -name '*.bak' -delete
 
 # Update Main index.html
 echo "Updating main index.html..."
