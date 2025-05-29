@@ -1,4 +1,4 @@
-class TemplateWebComponent extends HTMLElement {
+class {{COMPONENT_PASCAL_CASE_NAME}}WebComponent extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -14,4 +14,4 @@ class TemplateWebComponent extends HTMLElement {
     }
 }
 
-customElements.define("template-web-component", TemplateWebComponent);
+customElements.define("{{COMPONENT_NAME}}-web-component", {{COMPONENT_PASCAL_CASE_NAME}}WebComponent);

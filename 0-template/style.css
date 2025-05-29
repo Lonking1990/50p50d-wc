@@ -1,0 +1,6 @@
+/* Styles for {{COMPONENT_TITLE}} */
+/* Add your styles here! */
+:host {
+    display: block;
+    font-family: sans-serif;
+}
